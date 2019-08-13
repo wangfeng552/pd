@@ -307,7 +307,9 @@
       <div class="column">
         <div class="column-main">
           <h2 class="title">信用监管</h2>
-          <div class="echart"></div>
+          <div class="echart">
+            <chart class="zsy" :options="credit"></chart>
+          </div>
         </div>
         <div class="topliner"></div>
         <div class="bian tl-jiao">
@@ -520,6 +522,55 @@ export default {
               shadowColor: 'rgba(0, 0, 0, 0.5)'
             }
           }
+        }]
+      },
+      // 信用
+      credit: {
+        color: ['#33e1bf', '#ff9600', '#109ff6'],
+        series: [{
+          name: '信用监管',
+          type: 'pie',
+          radius: ['35%', '55%'],
+          label: {
+            normal: {
+              formatter: '{b|{b}}\n{c|{c}}\n{per|{d}%}',
+              rich: {
+                b: {
+                  fontSize: 14,
+                  lineHeight: 16,
+                  color: '#0abfe6'
+                },
+                c: {
+                  fontSize: 16,
+                  lineHeight: 18,
+                  color: '#ffbc41'
+                },
+                per: {
+                  color: '#0abfe6',
+                  backgroundColor: '#07437f',
+                  padding: [2, 2, 4, 4],
+                  
+                }
+              }
+            }
+          },
+           labelLine:{
+                length:10,
+                length2:30
+            },
+          data: [{
+              value: 60,
+              name: '信用B'
+            },
+            {
+              value: 30,
+              name: '信用A'
+            },
+            {
+              value: 10,
+              name: '信用C'
+            }
+          ]
         }]
       }
     }
@@ -1105,7 +1156,8 @@ export default {
         height: 24px;
         line-height: 24px;
       }
-      .ft1{
+
+      .ft1 {
         font-size: 18px;
       }
 
@@ -1131,20 +1183,23 @@ export default {
 
     }
   }
-  .area-list:nth-child(2){
+
+  .area-list:nth-child(2) {
     .person-bfb {
       .p-zhu {
-        .green{
+        .green {
           background-color: #ff9600;
         }
       }
     }
   }
-  .area-list:last-child{
+
+  .area-list:last-child {
     margin-bottom: 0;
+
     .person-bfb {
       .p-zhu {
-        .green{
+        .green {
           background-color: #79b329;
         }
       }
