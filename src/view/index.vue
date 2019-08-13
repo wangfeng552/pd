@@ -228,7 +228,32 @@
       <div class="column column-176">
         <div class="column-main">
           <h2 class="title">动态监管</h2>
-          <div class="echart"></div>
+          <div class="dongtai clear">
+            <div class="dt-fl">
+              <ul>
+                <li>
+                  <p><span class="t1">307</span><span class="t2">次</span></p>
+                  <div class="t03">协同监管</div>
+                </li>
+                <li>
+                  <p><span class="t1">307</span><span class="t2">次</span></p>
+                  <div class="t03">12345投诉</div>
+                </li>
+                <li>
+                  <p><span class="t1">307</span><span class="t2">次</span></p>
+                  <div class="t03">110报警</div>
+                </li>
+              </ul>
+            </div>
+            <div class="dt-fr">
+              <ul>
+                <li><span class="t1">人脸识别</span><span class="t2">1036</span></li>
+                <li><span class="t1">车牌识别</span><span class="t2">1036</span></li>
+                <li><span class="t1">烟感警报</span><span class="t2">1036</span></li>
+              </ul>
+            </div>
+
+          </div>
         </div>
         <div class="topliner"></div>
         <div class="bian tl-jiao">
@@ -248,7 +273,21 @@
       <div class="column">
         <div class="column-main">
           <h2 class="title">风险监管</h2>
-          <div class="echart"></div>
+          <div class="fxjg">
+            <div class="risk high">
+              <p class="t1">45</p>
+              <p class="t2">高</p>
+            </div>
+            <div class="risk middle">
+              <p class="t1">45</p>
+              <p class="t2">中</p>
+            </div>
+            <div class="risk low">
+              <p class="t1">9</p>
+              <p class="t2">低</p>
+            </div>
+
+          </div>
         </div>
         <div class="topliner"></div>
         <div class="bian tl-jiao">
@@ -287,8 +326,39 @@
       <!-- 分类监管 -->
       <div class="column column-176">
         <div class="column-main">
-          <h2 class="title">风险监管</h2>
-          <div class="echart"></div>
+          <h2 class="title">分类监管</h2>
+          <div class="fljg">
+
+            <div class="area-list">
+              <div class="person-bfb">
+                <div class="ft1">高</div>
+                <div class="p-zhu">
+                  <div class="green"></div>
+                </div>
+                <div>23%</div>
+              </div>
+            </div>
+
+            <div class="area-list">
+              <div class="person-bfb">
+                <div class="ft1">中</div>
+                <div class="p-zhu">
+                  <div class="green"></div>
+                </div>
+                <div>13%</div>
+              </div>
+            </div>
+            <div class="area-list">
+              <div class="person-bfb">
+                <div class="ft1">低</div>
+                <div class="p-zhu">
+                  <div class="green"></div>
+                </div>
+                <div>64%</div>
+              </div>
+            </div>
+
+          </div>
         </div>
         <div class="topliner"></div>
         <div class="bian tl-jiao">
@@ -392,21 +462,21 @@ export default {
         }]
       },
       huodong: {
-       title: {
+        title: {
           x: 'center'
         },
-        color:['#00a2ff', '#1ab545','#a136e5','#e23ca9','#f19917'],
+        color: ['#00a2ff', '#1ab545', '#a136e5', '#e23ca9', '#f19917'],
         tooltip: {
           trigger: 'item',
           formatter: "{a} <br/>{b} : {c} ({d}%)"
         },
         legend: {
           orient: 'vertical',
-          textStyle:{
-            color:'#0abfe6'
+          textStyle: {
+            color: '#0abfe6'
           },
           right: '20',
-          top:'10',
+          top: '10',
           data: ['体育赛事', '节庆旅游', '展览展会', '文艺演出', '影视娱乐']
         },
         series: [{
@@ -435,12 +505,12 @@ export default {
               name: '影视娱乐'
             }
           ],
-            label:{
-            normal:{
-              position:'inside',
-              color:'#fff',
-              formatter:'{d}%',
-              fontSize:'14'
+          label: {
+            normal: {
+              position: 'inside',
+              color: '#fff',
+              formatter: '{d}%',
+              fontSize: '14'
             }
           },
           itemStyle: {
@@ -889,31 +959,225 @@ export default {
   }
 }
 
-// 平台
-.pingtai{
+// 动态监管
+
+.dongtai {
+  font-size: 14px;
+  margin-top: 10px;
+
+  .dt-fl {
+    width: 302px;
+    float: left;
+
+    li {
+      width: 100px;
+      text-align: center;
+      float: left;
+      position: relative;
+
+      p {
+        height: 62px;
+        line-height: 62px;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 100px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: linear-gradient(0, transparent, #13def4, transparent)
+      }
+
+      .t1 {
+        font-size: 30px;
+        color: #ffbc41;
+        font-weight: 700;
+      }
+
+      .t2 {
+        font-size: 14px;
+        color: #ffbc41;
+      }
+
+      .t03 {
+        font-size: 14px;
+        color: #0abfe6;
+      }
+    }
+  }
+
+  .dt-fr {
+    width: 136px;
+    padding-left: 10px;
+    float: right;
+
+    li {
+      height: 24px;
+      margin-bottom: 10px;
+
+      .t1 {
+        font-size: 14px;
+        color: #0abfe6;
+        padding-right: 10px;
+      }
+
+      .t2 {
+        font-size: 20px;
+        color: #ffbc41;
+      }
+    }
+  }
+}
+
+// 风险监管
+.fxjg {
   position: relative;
-  .jb{
+  height: 178px;
+
+  .risk {
+    position: absolute;
+    text-align: center;
+
+    .t1 {
+      font-size: 20px;
+      color: #fff;
+    }
+
+    .t2 {
+      font-size: 16px;
+      color: #fff;
+    }
+
+  }
+
+  .high {
+    padding-top: 30px;
+    width: 114px;
+    height: 114px;
+    border-radius: 50%;
+    background-color: #e85825;
+    left: 162px;
+  }
+
+  .middle {
+    padding-top: 17px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #ff9600;
+    left: 62px;
+    top: 63px;
+  }
+
+  .low {
+    padding-top: 8px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #79b32d;
+    left: 304px;
+    top: 52px;
+  }
+
+}
+
+// 分类监管
+
+.fljg {
+  position: relative;
+  height: 178px;
+  padding: 15px 0 0 25px;
+
+  .area-list {
+    font-size: 14px;
+    margin-bottom: 20px;
+
+    .person-bfb {
+      height: 20px;
+
+      >div {
+        float: left;
+        color: #0abfe6;
+        width: 40px;
+        height: 24px;
+        line-height: 24px;
+      }
+      .ft1{
+        font-size: 18px;
+      }
+
+      .p-zhu {
+        width: 300px;
+        background-color: #264783;
+        margin-right: 10px;
+        position: relative;
+        top: 7px;
+        height: 11px;
+        margin-right: 15px;
+
+        .green {
+          position: absolute;
+          width: 10%;
+          height: 11px;
+          left: 0;
+          top: 0;
+          background-color: #e85825;
+        }
+
+      }
+
+    }
+  }
+  .area-list:nth-child(2){
+    .person-bfb {
+      .p-zhu {
+        .green{
+          background-color: #ff9600;
+        }
+      }
+    }
+  }
+  .area-list:last-child{
+    margin-bottom: 0;
+    .person-bfb {
+      .p-zhu {
+        .green{
+          background-color: #79b329;
+        }
+      }
+    }
+  }
+}
+
+// 平台
+.pingtai {
+  position: relative;
+
+  .jb {
     width: 1px;
     height: 70px;
     position: absolute;
     left: 50%;
-     background: linear-gradient(0, transparent, #13def4, transparent)
+    background: linear-gradient(0, transparent, #13def4, transparent)
   }
-  .ptname{
+
+  .ptname {
     float: left;
-      padding-left: 10px;
+    padding-left: 10px;
     width: 50%;
     height: 70px;
     line-height: 70px;
     font-size: 15px;
     color: #24ccff;
-        background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#b0f9ff), to(#24ccff));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+    background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#b0f9ff), to(#24ccff));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
   }
 
-  
 }
 
 /* 活动数量 */

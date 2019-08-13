@@ -4,7 +4,7 @@
   var recalc = function () {
       var clientWidth = document.body.clientWidth;
       if (!clientWidth) return;
-      var toFS = 100 * (clientWidth / 1600);
+      var toFS = 100 * (clientWidth / 1920);
       docEl.style.fontSize = toFS + "px";
       setTimeout(() => {
         var ft = parseInt(getComputedStyle(docEl).fontSize);
