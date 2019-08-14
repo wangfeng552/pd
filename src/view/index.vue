@@ -557,6 +557,33 @@
     </div>
 
   </div>
+  <!-- 风险监管弹窗 -->
+  <div class="risk-pop-bg" v-show="false">
+    <div class="risk-pop-main">
+      <div class="risk-fl">
+        <div class="r-title">
+          <div class="r-name">活动名称</div>
+          <div class="r-fen">评分</div>
+        </div>
+        <div class="activity-content">
+          <div class="activity-list" v-for="v in 4">
+            <div class="name">撒打发斯蒂芬撒打发斯蒂芬撒打发斯蒂芬撒打发斯蒂芬1231233213sdf </div>
+            <div class="fen">12</div>
+          </div>
+          <div class="activity-list act">
+            <div class="name">撒打发斯蒂芬撒打发斯蒂芬撒打发斯蒂芬撒打发斯蒂芬1231233213sdf </div>
+            <div class="fen">12</div>
+          </div>
+        </div>
+      </div>
+      <div class="risk-fr">
+         <div class="r-title">
+          <div class="r-name textc">活动名称</div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
 </div>
 </template>
@@ -916,6 +943,113 @@ export default {
       }
     }
   }
+  
+    .risk-pop-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    .risk-pop-main {
+      position: absolute;
+      width: 900px;
+      height: 260px;
+      overflow: hidden;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      background-color: #062465;
+      border-radius: 10px;
+      border: 1px solid #0263be;
+
+      .risk-fl{
+        width: 463px;
+        border-right: 1px solid #0263be;
+        float: left;
+        .activity-content{
+          border-bottom:  1px solid #0263be;
+          height: 181px;
+          .activity-list{
+            height: 36px;
+            .name{
+              width: 390px;
+              padding-right: 20px;
+              float: left;
+              height: 36px;
+              line-height: 36px;
+              padding-left: 15px;
+              font-size: 14px;
+               color: #0abfe6;
+               white-space: nowrap;
+               overflow: hidden;
+               text-overflow: ellipsis;
+            }
+            .fen{
+               float: left;
+            width: 60px;
+          height: 36px;
+          line-height: 36px;
+          font-size: 16px;
+          color: #ffbc41;
+          font-size: 14px;
+          text-align: center;
+
+            }
+          }
+          .activity-list:nth-child(2n){
+            background-color: #0c3078;
+          }
+          .act{
+            background-color: #00a2ff!important;
+            .name{
+              color: #fff;
+            }
+          }
+        }
+     
+      }
+      .risk-fr{
+        width: 435px;
+        float:right;
+      }
+         .r-title{
+          height: 40px;
+          background-color: #1a4ba3;
+          .r-name{
+            width: 390px;
+            padding-left: 15px;
+          height: 40px;
+          line-height: 40px;
+          font-size: 16px;
+          color: #0abfe6;
+          float: left;
+
+          }
+          .r-fen{
+            float: left;
+            width: 60px;
+          height: 40px;
+          line-height: 40px;
+          font-size: 16px;
+          color: #0abfe6;
+          text-align: center;
+
+            
+          }
+          .textc{
+            width: 435px;
+            text-align: center;
+          }
+          
+
+        }
+    }
+    }
 
 }
 
