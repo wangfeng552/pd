@@ -158,7 +158,6 @@
               <div class="fl3">21</div>
               <div class="fl4">A</div>
             </div>
-
           </div>
 
         </div>
@@ -185,6 +184,90 @@
           <div class="map-right-bg"></div>
           <div class="map-bottom-bg"></div>
           <div class="map-left-bg"></div>
+
+          <!-- 地图弹窗 -->
+          <div class="map-pop">
+            <div class="tab">
+              <ul>
+                <li class="act">活动详情</li>
+                <li class="">活动监控</li>
+              </ul>
+            </div>
+            <div class="tab-main">
+              <!-- 活动详情内容 -->
+              <div class="detail" >
+                <div class="more"></div>
+                <h3 class="title">《MWC世界移动通信大会亚洲展》</h3>
+                <div class="d-text">
+                  <span class="f0ab">时间：</span>
+                  <span class="fff">2019-07-01 10:00 一 2019-08-12 11:16</span>
+                </div>
+                <div class="d-text">
+                  <span class="f0ab">地址：</span>
+                  <span class="fff">浦东</span>
+                </div>
+                <div class="d-text">
+                  <span class="f0ab">主办单位：</span>
+                  <span class="fff">浦东</span>
+                </div>
+                <div class="d-text">
+                  <span class="f0ab">负责人：</span>
+                  <span class="fff">浦东</span>
+                  <span class="f0ab ml20">电话：</span>
+                  <span class="fff">浦东</span>
+                </div>
+                <div class="d-text"><span class="f0ab">委办局审批状态：</span></div>
+                <div class="username">
+                  <div class="u-list" v-for="v in 10">
+                    <ul>
+                      <li>消防</li>
+                      <li>消防</li>
+                      <li>13761401502</li>
+                      <!--已接受和受理中 yjs | 未接受 wjs | 已完成 ywc -->
+                      <li class="yjs">已接收</li>
+                    </ul>
+                  </div>
+
+                </div>
+                <div class="d-text">
+                  <span class="f0ab">活动简介：</span>
+                  <span class="fff">浦东</span>
+                </div>
+              </div>
+              <!-- 活动监控内容 -->
+              <div class="monitor" v-if="false" >
+                <div class="title">
+                  <ul>
+                    <li>设备名称</li>
+                    <li>编号</li>
+                  </ul>
+                </div>
+                <div class="zf-main">
+                  <!-- 点击act 打钩 -->
+                  <div class="sb-list act clearfix">
+                    <div class="c-1"><span class="gou"></span></div>
+                    <div class="c-2">
+                      <!-- 显示不同icon -->
+                      <span class="zfy-cion"></span>
+                      <!-- <span class="bkq-icon"></span>
+                      <span class="gdjk-icon"></span>
+                      <span class="gdjk2-icon"></span> -->
+                    </div>
+                    <div class="c-3">执法仪</div>
+                    <div class="c-4">019258865</div>
+                  </div>
+                  <div class="sb-list clearfix">
+                    <div class="c-1"><span class="gou"></span></div>
+                    <div class="c-2"><span class="bkq-icon"></span></div>
+                    <div class="c-3">执法仪</div>
+                    <div class="c-4">019258865</div>
+                  </div>
+                </div>
+                <div class="sphj">视频呼叫</div>
+              </div>
+            </div>
+
+          </div>
 
         </div>
 
@@ -556,10 +639,10 @@ export default {
               }
             }
           },
-           labelLine:{
-                length:10,
-                length2:30
-            },
+          labelLine: {
+            length: 10,
+            length2: 30
+          },
           data: [{
               value: 60,
               name: '信用B'
@@ -629,6 +712,242 @@ export default {
     width: 940px;
     margin: 0 27px;
     float: left;
+
+    .map-pop {
+      width: 370px;
+      height: 400px;
+      background-color: rgba(6, 37, 87, 0.8);
+      border: 1px solid #00a2ff;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      border-radius: 5px;
+      overflow: hidden;
+
+      .tab {
+        height: 44px;
+        border-bottom: 1px solid #00a2ff;
+
+        li {
+          float: left;
+          width: 50%;
+          height: 44px;
+          line-height: 44px;
+          font-size: 16px;
+          text-align: center;
+          color: #028ae2;
+          cursor: pointer;
+        }
+
+        .act {
+          height: 43px;
+          background-color: #0289e1;
+          color: #fff;
+        }
+
+      }
+
+      .tab-main {
+        .detail {
+          margin: 20px;
+          font-size: 14px;
+          max-height: 316px;
+          overflow: auto;
+
+          .more{
+            width: 14px;
+            height: 8px;
+            background: url('~@/assets/images/more.png') 0 0 no-repeat;
+            background-size: 100%;
+            position: absolute;
+            bottom:5px;
+            left: 50%;
+            margin-left: -7px;
+          }
+
+          .title {
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+            height: 28px;
+            line-height: 28px;
+            margin-bottom: 10px;
+          }
+
+          .d-text {
+            line-height: 24px;
+
+            .f0ab {
+              color: #0abfe6;
+            }
+
+            .ml20 {
+              margin-left: 30px;
+            }
+
+            .fff {
+              color: #fff;
+            }
+          }
+
+          .username {
+            .u-list{
+              li{
+                float: left;
+                width: 60px;
+                color: #fff;
+              }
+              li:nth-child(2){
+                width: 80px;
+              }
+              li:nth-child(3){
+                width: 125px;
+              }
+              .yjs{
+                color: #ffbc41;
+              }
+              .wjs{
+                color: #e85825;
+              }
+              .ywc{
+                color: #61af21;
+              }
+            }
+          }
+        }
+
+        .monitor {
+          .title {
+            height: 36px;
+            margin-top: 10px;
+
+            li {
+              height: 36px;
+              line-height: 36px;
+              padding-left: 113px;
+              float: left;
+              width: 250px;
+              font-size: 16px;
+              color: #fff;
+            }
+
+            li:last-child {
+              padding-left: 0;
+              width: 100px;
+            }
+          }
+
+          .zf-main {
+            max-height: 230px;
+            overflow: auto;
+            margin-bottom: 20px;
+
+            .sb-list {
+              height: 50px;
+
+              .c-1 {
+                width: 46px;
+                height: 50px;
+                float: left;
+
+                .gou {
+                  display: block;
+                  width: 20px;
+                  height: 20px;
+                  background: url('~@/assets/images/person_1.png') 0 0 no-repeat;
+                  background-size: 100%;
+                  position: relative;
+                  left: 26px;
+                  top: 15px;
+                }
+              }
+
+              .c-2 {
+                width: 68px;
+                height: 50px;
+                float: left;
+
+                span {
+                  display: block;
+                  width: 35px;
+                  height: 35px;
+                  position: relative;
+                  left: 20px;
+                  top: 8px;
+                }
+
+                .zfy-cion {
+                  background: url('~@/assets/images/person_3.png') 0 0 no-repeat;
+                  background-size: 100%;
+                }
+
+                .bkq-icon {
+                  background: url('~@/assets/images/person_4.png') 0 0 no-repeat;
+                  background-size: 100%;
+                }
+
+                .gdjk-icon {
+                  background: url('~@/assets/images/person_5.png') 0 0 no-repeat;
+                  background-size: 100%;
+                }
+
+                .gdjk2-icon {
+                  background: url('~@/assets/images/person_6.png') 0 0 no-repeat;
+                  background-size: 100%;
+                }
+              }
+
+              .c-3 {
+                width: 135px;
+                height: 50px;
+                line-height: 50px;
+
+                float: left;
+                font-size: 14px;
+                color: #0abfe6;
+              }
+
+              .c-4 {
+                width: 119px;
+                height: 50px;
+                line-height: 50px;
+                float: left;
+                font-size: 14px;
+                color: #0abfe6;
+              }
+
+            }
+
+            .sb-list:nth-child(2n) {
+              background-color: rgba(12, 52, 125, 0.6)
+            }
+
+            .act {
+              .c-1 {
+                .gou {
+                  background: url('~@/assets/images/person_2.png') 0 0 no-repeat;
+                  background-size: 100%;
+                }
+              }
+            }
+          }
+
+          .sphj {
+            background-color: #e85825;
+            width: 120px;
+            height: 38px;
+            line-height: 38px;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            margin: 0 auto;
+            border-radius: 5px;
+          }
+        }
+      }
+
+    }
   }
 
   /* 右边模块 */
@@ -667,7 +986,8 @@ export default {
       background: url('~@/assets/images/map_bg_01.png') 0 0 no-repeat;
       background-size: 100%;
     }
-     .map-right-bg {
+
+    .map-right-bg {
       pointer-events: none;
       position: absolute;
       right: 0;
@@ -678,6 +998,7 @@ export default {
       background: url('~@/assets/images/map_bg_02.png') 0 0 no-repeat;
       background-size: 100%;
     }
+
     .map-bottom-bg {
       pointer-events: none;
       position: absolute;
@@ -689,6 +1010,7 @@ export default {
       background: url('~@/assets/images/map_bg_03.png') 0 0 no-repeat;
       background-size: 100%;
     }
+
     .map-left-bg {
       pointer-events: none;
       position: absolute;
