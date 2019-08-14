@@ -182,6 +182,9 @@
       <div class="mapmain">
         <div class="column-map">
           <div class="map-top-bg"></div>
+          <div class="map-right-bg"></div>
+          <div class="map-bottom-bg"></div>
+          <div class="map-left-bg"></div>
 
         </div>
 
@@ -457,7 +460,7 @@ export default {
 
         }],
         series: [{
-          name: '直接访问',
+          name: '度假区',
           type: 'bar',
           barWidth: '50%',
           data: [10, 52, 200, 60, 90]
@@ -482,7 +485,7 @@ export default {
           data: ['体育赛事', '节庆旅游', '展览展会', '文艺演出', '影视娱乐']
         },
         series: [{
-          name: '访问来源',
+          name: '活动类别',
           type: 'pie',
           radius: '90%',
           center: ['35%', '50%'],
@@ -548,8 +551,7 @@ export default {
                 per: {
                   color: '#0abfe6',
                   backgroundColor: '#07437f',
-                  padding: [2, 2, 4, 4],
-                  
+                  padding: [2, 2, 4, 4]
                 }
               }
             }
@@ -659,9 +661,43 @@ export default {
       position: absolute;
       left: 0;
       top: 0;
+      z-index: 10;
       width: 940px;
-      height: 701px;
-      background: url('~@/assets/images/map_bg.png') 0 0 no-repeat;
+      height: 18px;
+      background: url('~@/assets/images/map_bg_01.png') 0 0 no-repeat;
+      background-size: 100%;
+    }
+     .map-right-bg {
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+      top: 18px;
+      z-index: 10;
+      width: 7px;
+      height: 661px;
+      background: url('~@/assets/images/map_bg_02.png') 0 0 no-repeat;
+      background-size: 100%;
+    }
+    .map-bottom-bg {
+      pointer-events: none;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 10;
+      width: 940px;
+      height: 21px;
+      background: url('~@/assets/images/map_bg_03.png') 0 0 no-repeat;
+      background-size: 100%;
+    }
+    .map-left-bg {
+      pointer-events: none;
+      position: absolute;
+      left: 0;
+      top: 18px;
+      z-index: 10;
+      width: 7px;
+      height: 661px;
+      background: url('~@/assets/images/map_bg_04.png') 0 0 no-repeat;
       background-size: 100%;
     }
   }
