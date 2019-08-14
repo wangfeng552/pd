@@ -195,7 +195,7 @@
             </div>
             <div class="tab-main">
               <!-- 活动详情内容 -->
-              <div class="detail" >
+              <div class="detail">
                 <div class="more"></div>
                 <h3 class="title">《MWC世界移动通信大会亚洲展》</h3>
                 <div class="d-text">
@@ -235,7 +235,7 @@
                 </div>
               </div>
               <!-- 活动监控内容 -->
-              <div class="monitor" v-if="false" >
+              <div class="monitor" v-if="false">
                 <div class="title">
                   <ul>
                     <li>设备名称</li>
@@ -489,6 +489,75 @@
     </div>
   </div>
 
+  <!-- 弹窗 六个双审批状态 -->
+  <div class="approval-pop-bg">
+    <div class="approval-pop-main">
+      <div class="close"></div>
+      <div class="title">六个双审批状态</div>
+      <div class="line"></div>
+      <div class="tap-title clear">
+        <ul>
+          <li class="act">双告知 <span class="jiantou"></span></li>
+          <li>双反馈 <span class="jiantou"></span></li>
+          <li>双跟踪 <span class="jiantou"></span></li>
+          <li>双评估 <span class="jiantou"></span></li>
+          <li>双随机 <span class="jiantou"></span></li>
+          <li>双公示 <span class="jiantou"></span></li>
+        </ul>
+      </div>
+      <div class="tap-main">
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="six-table">
+          <colgroup class="w-1"></colgroup>
+          <colgroup class="w-2"></colgroup>
+          <colgroup class="w-2"></colgroup>
+          <colgroup class="w-4"></colgroup>
+          <colgroup class="w-4"></colgroup>
+          <colgroup class="w-5"></colgroup>
+          <thead class="title-th">
+            <tr>
+              <th></th>
+              <th>部门</th>
+              <th>操作人</th>
+              <th>接受时间</th>
+              <th>处理时间</th>
+              <th>状态</th>
+            </tr>
+          </thead>
+          <tbody class="tbody">
+            <tr>
+              <td class="tc">1</td>
+              <td>阿萨德弗兰克</td>
+              <td>阿萨德</td>
+              <td>2019-05-31 14：26</td>
+              <td>2019-05-31 14：26</td>
+              <td class="success">受理成功</td>
+            </tr>
+             <tr>
+              <td class="tc">1</td>
+              <td>阿萨德弗兰克</td>
+              <td>阿萨德</td>
+              <td>2019-05-31 14：26</td>
+              <td>2019-05-31 14：26</td>
+              <td class="error">未受理</td>
+            </tr>
+             <tr>
+              <td class="tc">1</td>
+              <td>阿萨德弗兰克</td>
+              <td>阿萨德</td>
+              <td>2019-05-31 14：26</td>
+              <td>2019-05-31 14：26</td>
+              <td class="error">未受理</td>
+            </tr>
+          </tbody>
+
+        </table>
+
+      </div>
+    </div>
+
+  </div>
+
 </div>
 </template>
 
@@ -695,6 +764,159 @@ export default {
     }
   }
 
+  .approval-pop-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    .approval-pop-main {
+      position: absolute;
+      width: 959px;
+      height: 578px;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      background-color: #1b4ca5;
+      border-radius: 10px;
+      border: 1px solid #13def4;
+
+      .close {
+        cursor: pointer;
+        position: absolute;
+        right: -20px;
+        top: -20px;
+        width: 40px;
+        height: 40px;
+        background: url('~@/assets/images/close.png') 0 0 no-repeat;
+        background-size: 100%;
+      }
+
+      .title {
+        margin-top: 35px;
+        height: 46px;
+        font-weight: 700;
+        text-align: center;
+        font-size: 30px;
+        height: 50px;
+        color: #ffb233;
+        background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffd76b), to(#f7a21b));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .line {
+        width: 320px;
+        height: 1px;
+        margin: 0 auto;
+        background: linear-gradient(90deg, transparent, #13def4, transparent);
+        margin-bottom: 38px;
+      }
+
+      .tap-title {
+        padding-left: 55px;
+        margin-bottom: 24px;
+
+        li {
+          width: 80px;
+          height: 80px;
+          line-height: 80px;
+          text-align: center;
+          border-radius: 50%;
+          background-color: #3eafef;
+          font-size: 20px;
+          color: #fff;
+          float: left;
+          margin-right: 68px;
+          position: relative;
+          top: 17px;
+        }
+
+        li:last-child {
+          margin-right: 0;
+        }
+
+        .act {
+          top: 0;
+          width: 94px;
+          height: 94px;
+          line-height: 94px;
+          background-color: #ed9e14;
+          border: 10px solid #0d2f7a;
+          box-sizing: content-box;
+          .jiantou {
+          position: absolute;
+          bottom: -35px;
+          left: 33px;
+          z-index: 99;
+          width: 23px;
+          height: 15px;
+          background: url('~@/assets/images/tjiantou.png') 0 0 no-repeat;
+          background-size: 100%;
+        }
+        }
+      }
+
+      .tap-main {
+        width: 828px;
+        max-height: 280px;
+        margin: 0 auto;
+        background-color: #0a2c72;
+        border: 1px solid #00a2ff;
+        border-radius: 10px;
+        position: relative;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        overflow: auto;
+
+        .six-table{
+          font-size: 14px;
+          .title-th{
+            th{
+              font-size: 16px;
+              color: #00ccff;
+              text-align: left;
+            }
+          }
+          tr{
+            height: 40px;
+          }
+          .tbody tr:nth-child(2n-1){
+            background-color: #093880;
+          }
+          td{
+            color: #fff;
+          }
+          .tc{
+            text-align: center;
+          }
+          .success{
+            color: #61af21;
+          }
+          .error{
+            color: #ed6b14;
+          }
+          .w-1{
+            width: 60px;
+          }
+          .w-2{
+            width: 130px;
+          }
+          .w-4{
+            width: 190px;
+          }
+           .w-5{
+            width: 110px;
+          }
+        }
+      }
+    }
+  }
+
 }
 
 .main {
@@ -755,13 +977,13 @@ export default {
           max-height: 316px;
           overflow: auto;
 
-          .more{
+          .more {
             width: 14px;
             height: 8px;
             background: url('~@/assets/images/more.png') 0 0 no-repeat;
             background-size: 100%;
             position: absolute;
-            bottom:5px;
+            bottom: 5px;
             left: 50%;
             margin-left: -7px;
           }
@@ -792,25 +1014,30 @@ export default {
           }
 
           .username {
-            .u-list{
-              li{
+            .u-list {
+              li {
                 float: left;
                 width: 60px;
                 color: #fff;
               }
-              li:nth-child(2){
+
+              li:nth-child(2) {
                 width: 80px;
               }
-              li:nth-child(3){
+
+              li:nth-child(3) {
                 width: 125px;
               }
-              .yjs{
+
+              .yjs {
                 color: #ffbc41;
               }
-              .wjs{
+
+              .wjs {
                 color: #e85825;
               }
-              .ywc{
+
+              .ywc {
                 color: #61af21;
               }
             }
