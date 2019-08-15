@@ -490,7 +490,7 @@
   </div>
 
   <!-- 弹窗 六个双审批状态 -->
-  <div class="approval-pop-bg">
+  <div class="approval-pop-bg" v-show="false">
     <div class="approval-pop-main">
       <div class="close"></div>
       <div class="title">六个双审批状态</div>
@@ -533,7 +533,7 @@
               <td>2019-05-31 14：26</td>
               <td class="success">受理成功</td>
             </tr>
-             <tr>
+            <tr>
               <td class="tc">1</td>
               <td>阿萨德弗兰克</td>
               <td>阿萨德</td>
@@ -541,7 +541,7 @@
               <td>2019-05-31 14：26</td>
               <td class="error">未受理</td>
             </tr>
-             <tr>
+            <tr>
               <td class="tc">1</td>
               <td>阿萨德弗兰克</td>
               <td>阿萨德</td>
@@ -558,7 +558,7 @@
 
   </div>
   <!-- 风险监管弹窗 -->
-  <div class="risk-pop-bg" v-show="false">
+  <div class="risk-pop-bg">
     <div class="risk-pop-main">
       <div class="risk-fl">
         <div class="r-title">
@@ -566,22 +566,30 @@
           <div class="r-fen">评分</div>
         </div>
         <div class="activity-content">
-          <div class="activity-list" v-for="v in 4">
-            <div class="name">撒打发斯蒂芬撒打发斯蒂芬撒打发斯蒂芬撒打发斯蒂芬1231233213sdf </div>
-            <div class="fen">12</div>
-          </div>
           <div class="activity-list act">
             <div class="name">撒打发斯蒂芬撒打发斯蒂芬撒打发斯蒂芬撒打发斯蒂芬1231233213sdf </div>
             <div class="fen">12</div>
           </div>
+          <div class="activity-list" v-for="v in 4">
+            <div class="name">撒打发斯蒂芬撒打发斯蒂芬撒打发斯蒂芬撒打发斯蒂芬1231233213sdf </div>
+            <div class="fen">12</div>
+          </div>
+        </div>
+        <div class="pagination">
+          <span class="pg-prew"></span>
+          <span class="pg-text">1/45</span>
+          <span class="pg-next"></span>
         </div>
       </div>
       <div class="risk-fr">
-         <div class="r-title">
+        <div class="r-title">
           <div class="r-name textc">活动名称</div>
         </div>
+        <div class="r-echart">
+          <chart class="zsy" :options="fenzhi"></chart>
+        </div>
       </div>
-      
+
     </div>
   </div>
 
@@ -753,7 +761,62 @@ export default {
             }
           ]
         }]
+      },
+      fenzhi: {
+        color: ['#00a2ff'],
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: { // 坐标轴指示器，坐标轴触发有效
+            type: 'line' // 默认为直线，可选为：'line' | 'shadow'
+          }
+        },
+        grid: {
+          left: '8%',
+          right: '8%',
+          bottom: '6%',
+          top: '20%',
+          containLabel: true
+        },
+        xAxis: [{
+          type: 'category',
+          data: ['交通', '环保', '市容', '舆情', '搭建', '内容', '食品'],
+          axisTick: {
+            alignWithLabel: true
+          },
+          axisLine: {
+            lineStyle: {
+              color: '#00a2ff',
+              width: 1, //这里是为了突出显示加上的
+            }
+          }
+        }],
+        yAxis: [{
+          name: '分值',
+          type: 'value',
+          axisLine: {
+            lineStyle: {
+              color: '#00a2ff',
+              width: 1, //这里是为了突出显示加上的
+            }
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: ['#0c448a'],
+              width: 1,
+              type: 'solid'
+            }
+          }
+
+        }],
+        series: [{
+          name: '度假区',
+          type: 'bar',
+          barWidth: '50%',
+          data: [10, 52, 200, 60, 90, 120, 50]
+        }]
       }
+
     }
   },
   methods: {
@@ -876,16 +939,17 @@ export default {
           background-color: #ed9e14;
           border: 10px solid #0d2f7a;
           box-sizing: content-box;
+
           .jiantou {
-          position: absolute;
-          bottom: -35px;
-          left: 33px;
-          z-index: 99;
-          width: 23px;
-          height: 15px;
-          background: url('~@/assets/images/tjiantou.png') 0 0 no-repeat;
-          background-size: 100%;
-        }
+            position: absolute;
+            bottom: -35px;
+            left: 33px;
+            z-index: 99;
+            width: 23px;
+            height: 15px;
+            background: url('~@/assets/images/tjiantou.png') 0 0 no-repeat;
+            background-size: 100%;
+          }
         }
       }
 
@@ -900,51 +964,62 @@ export default {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
         overflow: auto;
 
-        .six-table{
+        .six-table {
           font-size: 14px;
-          .title-th{
-            th{
+
+          .title-th {
+            th {
               font-size: 16px;
               color: #00ccff;
               text-align: left;
             }
           }
-          tr{
+
+          tr {
             height: 40px;
           }
-          .tbody tr:nth-child(2n-1){
+
+          .tbody tr:nth-child(2n-1) {
             background-color: #093880;
           }
-          td{
+
+          td {
             color: #fff;
           }
-          .tc{
+
+          .tc {
             text-align: center;
           }
-          .success{
+
+          .success {
             color: #61af21;
           }
-          .error{
+
+          .error {
             color: #ed6b14;
           }
-          .w-1{
+
+          .w-1 {
             width: 60px;
           }
-          .w-2{
+
+          .w-2 {
             width: 130px;
           }
-          .w-4{
+
+          .w-4 {
             width: 190px;
           }
-           .w-5{
+
+          .w-5 {
             width: 110px;
           }
         }
       }
     }
   }
-  
-    .risk-pop-bg {
+
+  .risk-pop-bg {
     position: fixed;
     left: 0;
     top: 0;
@@ -967,16 +1042,20 @@ export default {
       border-radius: 10px;
       border: 1px solid #0263be;
 
-      .risk-fl{
+      .risk-fl {
         width: 463px;
         border-right: 1px solid #0263be;
         float: left;
-        .activity-content{
-          border-bottom:  1px solid #0263be;
+
+        .activity-content {
+          border-bottom: 1px solid #0263be;
           height: 181px;
-          .activity-list{
+
+          .activity-list {
             height: 36px;
-            .name{
+            cursor: pointer;
+
+            .name {
               width: 390px;
               padding-right: 20px;
               float: left;
@@ -984,72 +1063,123 @@ export default {
               line-height: 36px;
               padding-left: 15px;
               font-size: 14px;
-               color: #0abfe6;
-               white-space: nowrap;
-               overflow: hidden;
-               text-overflow: ellipsis;
+              color: #0abfe6;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
             }
-            .fen{
-               float: left;
-            width: 60px;
-          height: 36px;
-          line-height: 36px;
-          font-size: 16px;
-          color: #ffbc41;
-          font-size: 14px;
-          text-align: center;
+
+            .fen {
+              float: left;
+              width: 60px;
+              height: 36px;
+              line-height: 36px;
+              font-size: 16px;
+              color: #ffbc41;
+              font-size: 14px;
+              text-align: center;
 
             }
           }
-          .activity-list:nth-child(2n){
+
+          .activity-list:nth-child(2n) {
             background-color: #0c3078;
           }
-          .act{
-            background-color: #00a2ff!important;
-            .name{
+
+          .act {
+            background-color: #00a2ff !important;
+
+            .name {
               color: #fff;
             }
           }
         }
-     
+
+        .pagination {
+          height: 38px;
+          text-align: center;
+          font-size: 0;
+          padding-left: 130px;
+
+          >span {
+            display: block;
+            width: 65px;
+            height: 38px;
+            float: left;
+          }
+
+          .pg-text {
+            line-height: 38px;
+            text-align: center;
+            color: #0abfe6;
+            font-size: 14px;
+          }
+
+          .pg-prew {
+            cursor: pointer;
+            background: url('~@/assets/images/jt_l.png') center center no-repeat;
+            background-size: 8px 14px;
+          }
+
+          .pg-next {
+            cursor: pointer;
+            background: url('~@/assets/images/jt_y.png') center center no-repeat;
+            background-size: 8px 14px;
+          }
+        }
+
       }
-      .risk-fr{
+
+      .risk-fr {
         width: 435px;
-        float:right;
+        float: right;
+
+        .r-echart {
+          height: 218px;
+
+          .zsy {
+            width: 100%;
+            height: 100%;
+          }
+        }
       }
-         .r-title{
-          height: 40px;
-          background-color: #1a4ba3;
-          .r-name{
-            width: 390px;
-            padding-left: 15px;
+
+      .r-title {
+        height: 40px;
+        background-color: #1a4ba3;
+
+        .r-name {
+          width: 390px;
+          padding-left: 15px;
           height: 40px;
           line-height: 40px;
           font-size: 16px;
+          font-weight: 700;
           color: #0abfe6;
           float: left;
 
-          }
-          .r-fen{
-            float: left;
-            width: 60px;
+        }
+
+        .r-fen {
+          float: left;
+          width: 60px;
           height: 40px;
           line-height: 40px;
           font-size: 16px;
+           font-weight: 700;
           color: #0abfe6;
           text-align: center;
 
-            
-          }
-          .textc{
-            width: 435px;
-            text-align: center;
-          }
-          
-
         }
+
+        .textc {
+          width: 435px;
+          text-align: center;
+        }
+
+      }
     }
-    }
+  }
 
 }
 
