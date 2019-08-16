@@ -3,6 +3,9 @@
   var resizeEvt = "orientationchange" in window ? "orientationchange" : "resize";
   var recalc = function () {
       var clientWidth = document.body.clientWidth;
+      if(clientWidth>1920){
+        clientWidth = 1920
+      }
       if (!clientWidth) return;
       var toFS = 100 * (clientWidth / 1920);
       docEl.style.fontSize = toFS + "px";

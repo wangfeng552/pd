@@ -828,16 +828,10 @@ export default {
 </script>
 
 <style lang="less">
- .corner(@radius) {
-  @ca: e("calc(100% - @{radius})");
-  clip-path: polygon(@radius 0, @ca 0, 100% @radius, 100% @ca, @ca 100%, @radius 100%, 0 @ca, 0 @radius);
-}
 .layout {
   max-width: 1920px;
   margin: 0 auto;
   background-color: #00134f;
-
- 
 
   .header {
     font-size: 0;
@@ -1617,13 +1611,12 @@ export default {
     width: 438px;
     height: 218px;
     background-color: #0c357e;
-    // background: linear-gradient(135deg, transparent 8px, #0c357e 0) top left,
-    //   linear-gradient(-135deg, transparent 8px, #0c357e 0) top right,
-    //   linear-gradient(-45deg, transparent 8px, #0c357e 0) bottom right,
-    //   linear-gradient(45deg, transparent 8px, #0c357e 0) bottom left;
-    // background-size: 50% 50%;
-    // background-repeat: no-repeat;
-    .corner(11px);
+    background: linear-gradient(135deg, transparent 8px, #0c357e 0) top left,
+      linear-gradient(-135deg, transparent 8px, #0c357e 0) top right,
+      linear-gradient(-45deg, transparent 8px, #0c357e 0) bottom right,
+      linear-gradient(45deg, transparent 8px, #0c357e 0) bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
     position: absolute;
     left: 1px;
     top: 1px;
