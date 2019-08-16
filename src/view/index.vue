@@ -14,7 +14,7 @@
   <div class="main clear">
     <div class="m-l">
       <!-- 活动数量 -->
-      <div class="column">
+     <!--  <div class="column">
         <div class="column-main amount clear">
           <div class="jb-line"></div>
           <div class="w162">
@@ -23,7 +23,6 @@
               <div class="circle-main">
                 <div class="percentage">50%</div>
                 <div class="wave"></div>
-                <!-- top -50px 到50px -->
                 <div class="wave-mask" style="top: 20px"></div>
               </div>
             </div>
@@ -95,7 +94,73 @@
         <div class="bian br-jiao">
           <i class="xiejiao"></i>
         </div>
+      </div> -->
+
+      <!-- 活动数量背景 -->
+
+      <div class="column-pic amount clear">
+         <div class="w162">
+            <h2 class="title">活动数量</h2>
+            <div class="tuxing">
+              <div class="circle-main">
+                <div class="percentage">50%</div>
+                <div class="wave"></div>
+                <div class="wave-mask" style="top: 20px"></div>
+              </div>
+            </div>
+            <div class="text">度假区活动占比</div>
+          </div>
+          <div class="w276">
+            <div class="bz-top">
+              <div class="bz-list">
+                <span class="b-sekuai"></span>
+                <span class="text">度假区</span>
+              </div>
+              <div class="bz-list">
+                <span class="b-sekuai pd-sekuai"></span>
+                <span class="text">浦东新区</span>
+              </div>
+            </div>
+            <div class="bz-main">
+              <div class="area-list">
+                <div class="person">1000人以下</div>
+                <div class="person-bfb">
+                  <div>50</div>
+                  <div class="p-zhu">
+                    <div class="number">10%</div>
+                    <div class="green"></div>
+                  </div>
+                  <div>227</div>
+                </div>
+              </div>
+              <div class="area-list">
+                <div class="person">1000人以下</div>
+                <div class="person-bfb">
+                  <div>50</div>
+                  <div class="p-zhu">
+                    <div class="number">10%</div>
+                    <div class="green"></div>
+                  </div>
+                  <div>227</div>
+                </div>
+              </div>
+              <div class="area-list">
+                <div class="person">1000人以下</div>
+                <div class="person-bfb">
+                  <div>50</div>
+                  <div class="p-zhu">
+                    <div class="number">10%</div>
+                    <div class="green"></div>
+                  </div>
+                  <div>227</div>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
+
+
+
       <!-- 度假区 -->
       <div class="column">
         <div class="column-main">
@@ -1811,6 +1876,36 @@ export default {
   }
 }
 
+// 切角换背景图
+.column-pic{
+  width: 446px;
+  height: 226px;
+  background: url('~@/assets/images/qj_rect.png') 0 0 no-repeat;
+  background-size: 100%;
+  margin-bottom: 14px;
+    .title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffb233;
+      margin-top: 16px;
+      height: 24px;
+      padding-left: 17px;
+      background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffd76b), to(#ffb233));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+     .echart {
+      height: 178px;
+      font-size: 14px;
+    }
+
+    .zsy {
+      width: 100%;
+      height: 100%;
+    }
+
+}
+
 .column-center {
   width: 934px;
 
@@ -2187,6 +2282,7 @@ export default {
   float: left;
   margin-right: 23px;
   line-height: 24px;
+  font-size: 0;
 }
 
 .amount .w276 .bz-top .bz-list .b-sekuai {
