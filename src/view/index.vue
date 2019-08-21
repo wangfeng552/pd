@@ -235,11 +235,21 @@
       <div class="column-pic dongtai-bg">
         <h2 class="title">动态监管</h2>
         <div class="dongtai clear">
-          <div class="dt-fl">
             <ul>
-              <li>
-                <p><span class="t1">307</span><span class="t2">次</span></p>
-                <div class="t03">协同监管</div>
+              <li class="lgs clear">
+               <div class="lg-fl">
+                 <div class="name">六个双</div>
+               </div>
+               <div class="lg-fr">
+                 <div class="starting">
+                   <span class="f1">举办中</span>
+                   <span class="f2">202</span>
+                   </div>
+                   <div class="starting">
+                   <span class="f1">申请中</span>
+                   <span class="f2">202</span>
+                   </div>
+               </div>
               </li>
               <li>
                 <p><span class="t1">307</span><span class="t2">次</span></p>
@@ -250,14 +260,7 @@
                 <div class="t03">110报警</div>
               </li>
             </ul>
-          </div>
-          <div class="dt-fr">
-            <ul>
-              <li><span class="t1">人脸识别</span><span class="t2">1036</span></li>
-              <li><span class="t1">车牌识别</span><span class="t2">1036</span></li>
-              <li><span class="t1">烟感警报</span><span class="t2">1036</span></li>
-            </ul>
-          </div>
+ 
         </div>
       </div>
 
@@ -1172,14 +1175,10 @@ export default {
   // 动态监管
   .dongtai {
     font-size: 14px;
-    margin-top: 10px;
-
-    .dt-fl {
-      width: 302px;
-      float: left;
+    margin-top: 15px;
 
       li {
-        width: 100px;
+        width: 120px;
         text-align: center;
         float: left;
         position: relative;
@@ -1216,29 +1215,54 @@ export default {
           color: #0abfe6;
         }
       }
-    }
+      .lgs{
+        width: 195px;
+        padding-top: 8px;
+        .lg-fl{
+          width: 58px;
+          padding-left: 30px;
+          float: left;
+          .name{
+            border:1px solid #1b4ca5;
+            width: 28px;
+            border-radius: 14px;
+            height: 84px;
+            font-size: 16px;
+            color: #0abfe6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    .dt-fr {
-      width: 136px;
-      padding-left: 10px;
-      float: right;
+          }
 
-      li {
-        height: 24px;
-        margin-bottom: 10px;
-
-        .t1 {
-          font-size: 14px;
-          color: #0abfe6;
-          padding-right: 10px;
         }
-
-        .t2 {
-          font-size: 20px;
-          color: #ffbc41;
+        .lg-fr{
+          float: left;
+          width: 136px;
+          padding: 0  20px 0 15px;
+          .starting{
+            .f1{
+              font-size: 14px;
+              color: #0abfe6;
+            }
+            .f2{
+              font-size: 24px;
+              color: #ffbc41;
+            }
+          }
+          .starting:first-child{
+            height: 46px;
+            padding: 8px 0 10px;
+          }
         }
       }
-    }
+
+      li:last-child{
+        &::after{
+          display: none;
+        }
+      }
+    
   }
 
   // 风险监管

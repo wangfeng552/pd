@@ -7,7 +7,7 @@
         clientWidth = 1920
       }
       if (!clientWidth) return;
-      var toFS = 100 * (clientWidth / 1920);
+      var toFS = 100 * (clientWidth / 1600);
       docEl.style.fontSize = toFS + "px";
       setTimeout(() => {
         var ft = parseInt(getComputedStyle(docEl).fontSize);
