@@ -17,8 +17,10 @@
       <div class="column-pic activitycount">
         <div class="ac-fl">
           <h2 class="title">活动数量</h2>
+          <div class="number">231</div>
           <div class="echart">
-            <img class="pic" src="~@/assets/images/echart1.png" alt="">
+            <chart class="zsy" :options="hdsl"></chart>
+
           </div>
         </div>
         <div class="ac-fr">
@@ -26,16 +28,15 @@
             <span class="fl">1000人</span>
             <span class="fr">64</span>
           </div>
-           <div class="person clear">
+          <div class="person clear">
             <span class="fl">1000-5000人</span>
             <span class="fr">132</span>
           </div>
-           <div class="person clear">
+          <div class="person clear">
             <span class="fl">5000人以上</span>
             <span class="fr">35</span>
           </div>
         </div>
-         
 
       </div>
       <!-- <div class="column-pic amount clear">
@@ -136,7 +137,7 @@
       </div>
     </div>
     <!-- 中间 -->
-    <div class="m-c">
+    <div class="m-c" v-show="false">
       <div class="mapmain">
         <div class="column-map">
           <div class="map-top-bg"></div>
@@ -254,37 +255,37 @@
     </div>
 
     <!-- 右边 -->
-    <div class="m-r">
+    <div class="m-r" v-show="false">
       <!-- 动态监管 -->
       <div class="column-pic dongtai-bg">
         <h2 class="title">动态监管</h2>
         <div class="dongtai clear">
-            <ul>
-              <li class="lgs clear">
-               <div class="lg-fl">
-                 <div class="name">六个双</div>
-               </div>
-               <div class="lg-fr">
-                 <div class="starting">
-                   <span class="f1">举办中</span>
-                   <span class="f2">202</span>
-                   </div>
-                   <div class="starting">
-                   <span class="f1">申请中</span>
-                   <span class="f2">202</span>
-                   </div>
-               </div>
-              </li>
-              <li>
-                <p><span class="t1">307</span><span class="t2">次</span></p>
-                <div class="t03">12345投诉</div>
-              </li>
-              <li>
-                <p><span class="t1">307</span><span class="t2">次</span></p>
-                <div class="t03">110报警</div>
-              </li>
-            </ul>
- 
+          <ul>
+            <li class="lgs clear">
+              <div class="lg-fl">
+                <div class="name">六个双</div>
+              </div>
+              <div class="lg-fr">
+                <div class="starting">
+                  <span class="f1">举办中</span>
+                  <span class="f2">202</span>
+                </div>
+                <div class="starting">
+                  <span class="f1">申请中</span>
+                  <span class="f2">202</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <p><span class="t1">307</span><span class="t2">次</span></p>
+              <div class="t03">12345投诉</div>
+            </li>
+            <li>
+              <p><span class="t1">307</span><span class="t2">次</span></p>
+              <div class="t03">110报警</div>
+            </li>
+          </ul>
+
         </div>
       </div>
 
@@ -470,6 +471,77 @@
 export default {
   data() {
     return {
+      hdsl: {
+        grid: {
+          top: '5%',
+          left: '5%',
+          right: '5%',
+          bottom: '3%',
+          containLabel: true
+        },
+        xAxis: [{
+          type: 'category',
+          boundaryGap: false,
+          data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+          axisTick: {
+            alignWithLabel: true,
+            show: false
+          },
+          axisLine: {
+            lineStyle: {
+              color: '#00a2ff',
+              width: 1, //这里是为了突出显示加上的
+            }
+          }
+        }],
+        yAxis: [{
+          type: 'value',
+          splitNumber:4,
+          axisTick: {
+            show: false
+          },
+          axisLine: {
+            lineStyle: {
+              color: '#00a2ff',
+              width: 1, //这里是为了突出显示加上的
+            }
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: ['#0c448a'],
+              width: 0,
+              type: 'solid'
+            }
+          }
+
+        }],
+        series: [
+
+          {
+            name: '搜索引擎',
+            type: 'line',
+            stack: '总量',
+            label: {
+              normal: {
+                show: true,
+                position: 'top',
+                color: '#00a2ff'
+              }
+            },
+             itemStyle:{
+                borderWidth:0,
+            },
+            lineStyle: {
+              color: '#0faacc'
+            },
+            areaStyle: {
+              color: '#0a5c90'
+            },
+            data: [10, 20, 50, 60, 100, 120, 300]
+          }
+        ]
+      },
       dujia: {
         color: ['#00a2ff'],
         tooltip: {
@@ -1201,92 +1273,99 @@ export default {
     font-size: 14px;
     margin-top: 15px;
 
-      li {
-        width: 120px;
-        text-align: center;
+    li {
+      width: 120px;
+      text-align: center;
+      float: left;
+      position: relative;
+
+      p {
+        height: 62px;
+        line-height: 62px;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 100px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: linear-gradient(0, transparent, #13def4, transparent)
+      }
+
+      .t1 {
+        font-size: 30px;
+        color: #ffbc41;
+        font-weight: 700;
+      }
+
+      .t2 {
+        font-size: 14px;
+        color: #ffbc41;
+      }
+
+      .t03 {
+        font-size: 14px;
+        color: #0abfe6;
+      }
+    }
+
+    .lgs {
+      width: 195px;
+      padding-top: 8px;
+
+      .lg-fl {
+        width: 58px;
+        padding-left: 30px;
         float: left;
-        position: relative;
 
-        p {
-          height: 62px;
-          line-height: 62px;
-        }
-
-        &::after {
-          content: "";
-          display: block;
-          width: 1px;
-          height: 100px;
-          position: absolute;
-          right: 0;
-          top: 0;
-          background: linear-gradient(0, transparent, #13def4, transparent)
-        }
-
-        .t1 {
-          font-size: 30px;
-          color: #ffbc41;
-          font-weight: 700;
-        }
-
-        .t2 {
-          font-size: 14px;
-          color: #ffbc41;
-        }
-
-        .t03 {
-          font-size: 14px;
+        .name {
+          border: 1px solid #1b4ca5;
+          width: 28px;
+          border-radius: 14px;
+          height: 84px;
+          font-size: 16px;
           color: #0abfe6;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
         }
+
       }
-      .lgs{
-        width: 195px;
-        padding-top: 8px;
-        .lg-fl{
-          width: 58px;
-          padding-left: 30px;
-          float: left;
-          .name{
-            border:1px solid #1b4ca5;
-            width: 28px;
-            border-radius: 14px;
-            height: 84px;
-            font-size: 16px;
+
+      .lg-fr {
+        float: left;
+        width: 136px;
+        padding: 0 20px 0 15px;
+
+        .starting {
+          .f1 {
+            font-size: 14px;
             color: #0abfe6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
           }
 
+          .f2 {
+            font-size: 24px;
+            color: #ffbc41;
+          }
         }
-        .lg-fr{
-          float: left;
-          width: 136px;
-          padding: 0  20px 0 15px;
-          .starting{
-            .f1{
-              font-size: 14px;
-              color: #0abfe6;
-            }
-            .f2{
-              font-size: 24px;
-              color: #ffbc41;
-            }
-          }
-          .starting:first-child{
-            height: 46px;
-            padding: 8px 0 10px;
-          }
+
+        .starting:first-child {
+          height: 46px;
+          padding: 8px 0 10px;
         }
       }
+    }
 
-      li:last-child{
-        &::after{
-          display: none;
-        }
+    li:last-child {
+      &::after {
+        display: none;
       }
-    
+    }
+
   }
 
   // 风险监管
@@ -1606,12 +1685,13 @@ export default {
     }
   }
 
-  .activitycount{
-    .ac-fl{
+  .activitycount {
+    .ac-fl {
       width: 242px;
       float: left;
       position: relative;
-      &::after{
+
+      &::after {
         position: absolute;
         right: 0;
         top: 0;
@@ -1620,34 +1700,45 @@ export default {
         height: 216px;
         content: "";
       }
-      .pic{
-        width: 214px;
-        height: 163px;
-        margin:8px 0 0 15px;
+
+      .number {
+        font-size: 48px;
+        height: 60px;
+        line-height: 60px;
+        color: #ffbc41;
+        text-align: center;
       }
+
+      .echart {
+        height: 110px;
+      }
+
     }
-    
-     .ac-fr{
+
+    .ac-fr {
       width: 196px;
       float: left;
       padding: 25px 20px 0;
-      .person{
+
+      .person {
         margin-bottom: 30px;
-        .fl{
+
+        .fl {
           font-size: 14px;
           color: #0abfe6;
           display: block;
           height: 36px;
           line-height: 36px;
         }
-        .fr{
+
+        .fr {
           font-size: 32px;
           color: #ffbc41;
-           display: block;
+          display: block;
           height: 36px;
           line-height: 36px;
         }
-        
+
       }
     }
   }
