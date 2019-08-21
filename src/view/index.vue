@@ -137,7 +137,7 @@
       </div>
     </div>
     <!-- 中间 -->
-    <div class="m-c" v-show="false">
+    <div class="m-c">
       <div class="mapmain">
         <div class="column-map">
           <div class="map-top-bg"></div>
@@ -255,7 +255,7 @@
     </div>
 
     <!-- 右边 -->
-    <div class="m-r" v-show="false">
+    <div class="m-r">
       <!-- 动态监管 -->
       <div class="column-pic dongtai-bg">
         <h2 class="title">动态监管</h2>
