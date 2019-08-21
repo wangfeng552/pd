@@ -14,7 +14,31 @@
   <div class="main clear">
     <div class="m-l">
       <!-- 活动数量 -->
-      <div class="column-pic amount clear">
+      <div class="column-pic activitycount">
+        <div class="ac-fl">
+          <h2 class="title">活动数量</h2>
+          <div class="echart">
+            <img class="pic" src="~@/assets/images/echart1.png" alt="">
+          </div>
+        </div>
+        <div class="ac-fr">
+          <div class="person clear">
+            <span class="fl">1000人</span>
+            <span class="fr">64</span>
+          </div>
+           <div class="person clear">
+            <span class="fl">1000-5000人</span>
+            <span class="fr">132</span>
+          </div>
+           <div class="person clear">
+            <span class="fl">5000人以上</span>
+            <span class="fr">35</span>
+          </div>
+        </div>
+         
+
+      </div>
+      <!-- <div class="column-pic amount clear">
         <div class="w162">
           <h2 class="title">活动数量</h2>
           <div class="tuxing">
@@ -73,7 +97,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- 度假区 -->
       <div class="column-pic">
@@ -1578,6 +1602,52 @@ export default {
 
       100% {
         tansform: translate(-50%, -70%) rotate(360deg)
+      }
+    }
+  }
+
+  .activitycount{
+    .ac-fl{
+      width: 242px;
+      float: left;
+      position: relative;
+      &::after{
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: linear-gradient(0, transparent, #13def4, transparent);
+        width: 1px;
+        height: 216px;
+        content: "";
+      }
+      .pic{
+        width: 214px;
+        height: 163px;
+        margin:8px 0 0 15px;
+      }
+    }
+    
+     .ac-fr{
+      width: 196px;
+      float: left;
+      padding: 25px 20px 0;
+      .person{
+        margin-bottom: 30px;
+        .fl{
+          font-size: 14px;
+          color: #0abfe6;
+          display: block;
+          height: 36px;
+          line-height: 36px;
+        }
+        .fr{
+          font-size: 32px;
+          color: #ffbc41;
+           display: block;
+          height: 36px;
+          line-height: 36px;
+        }
+        
       }
     }
   }
